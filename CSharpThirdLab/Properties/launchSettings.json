@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CSharpThirdLab": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\anton\\Pictures\\LAND2.BMP"
+    }
+  }
+}
