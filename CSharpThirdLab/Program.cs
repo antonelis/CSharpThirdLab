@@ -7,8 +7,8 @@ namespace CSharpThirdLab
     {
         private const int widthStartIndexPNG = 16;
         private const int heightStartIndexPNG = 20;
-        private const int widthStartIndexBMP = 17;
-        private const int heightStartIndexBMP = 21;
+        private const int startwidthBMP = 18;
+        private const int startheightBMP = 22;
         static void Main(string[] args)
         {
             byte[] data = new byte[0];
@@ -48,14 +48,8 @@ namespace CSharpThirdLab
             }
             else if (IsBitmapFile(data))
             {
-                var widthBytes = new byte[4];
-                Array.Copy(data, widthStartIndexBMP, widthBytes, 0, 4);
-                Array.Reverse(widthBytes);
-                var heightBytes = new byte[4];
-                Array.Copy(data, heightStartIndexBMP, heightBytes, 0, 4);
-                Array.Reverse(heightBytes);
-                int width = BitConverter.ToInt32(widthBytes, 0);
-                int height = BitConverter.ToInt32(heightBytes, 0);
+                int width = BitConverter.ToUInt16(data, startwidthBMP);
+                int height = BitConverter.ToUInt16(data, startheightBMP);
 
                 Console.WriteLine($"”This is a .bmp image. Resolution: {width}x{height} pixels”");
             }
